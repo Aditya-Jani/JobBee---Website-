@@ -13,20 +13,20 @@ const app = express();
 config({ path: "./config/config.env" });
 
 // const cors = require('cors');
-app.use(
-  cors({
-    origin: [process.env.FRONTEND_URL || "https://jobzee-website-18.onrender.com"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: [process.env.FRONTEND_URL || "https://jobzee-website-18.onrender.com"],
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//     credentials: true,
+//   })
+// );
 
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'https://jobzee-website-18.onrender.com'); 
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://jobzee-website-18.onrender.com'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.use(cookieParser());
 app.use(express.json());
