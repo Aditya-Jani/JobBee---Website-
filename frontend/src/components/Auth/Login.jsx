@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import {BASE_URL} from "../../urls";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://jobbee-website.onrender.com/api/v1/user/login",
+        `${BASE_URL}/api/v1/user/login`,
         { email, password, role },
         {
           headers: {
