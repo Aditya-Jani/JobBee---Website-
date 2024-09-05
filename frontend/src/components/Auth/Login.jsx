@@ -38,12 +38,10 @@ const Login = () => {
     }
   };
 
-  // if(isAuthorized){
-  //   return <Navigate to={'/'}/>
-  // }
-   if(true){
+  if(isAuthorized){
     return <Navigate to={'/'}/>
   }
+ 
 
   return (
     <>
