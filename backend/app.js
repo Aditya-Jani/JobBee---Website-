@@ -20,14 +20,14 @@ config({ path: "./config/config.env" });
 //     credentials: true,
 //   })
 // );
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // Replace with your frontend domain
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true'); // This is crucial!
-  next();
-});
+app.use(cors());
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // Replace with your frontend domain
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Authorization');
+//   res.header('Access-Control-Allow-Credentials', 'true'); // This is crucial!
+//   next();
+// });
 
 app.use(cookieParser());
 app.use(express.json());
